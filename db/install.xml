@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="report/user_statistics/db" VERSION="20200306" COMMENT="XMLDB file for Moodle report/user_statistics"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="report_user_statistics" COMMENT="report_user_statistics table">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="connectedusers" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="number of users connected at the time"/>
+        <FIELD NAME="connecteduserfive" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="number of users connected in the last 5 minutes"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
