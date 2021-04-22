@@ -167,11 +167,11 @@ function get_month_days ($month) {
 // Searches all timestamps on the db to find all the months.
 function get_month_to_search() {
     global $DB;
-    $sql = "SELECT FROM_UNIXTIME(date) AS fecha FROM {report_user_statistics};";
+    $sql = "SELECT date AS fecha FROM {report_user_statistics};";
     $dates = $DB->get_records_sql($sql);
     $result = array();
     foreach ($dates as $date) {
-        $fecha = new DateTime($date->fecha);
+        $fecha = new DateTime("@$date->fecha");
         $result[$fecha->format('m')] = month_converter($fecha->format('m'));
     }
     return $result;
@@ -179,11 +179,11 @@ function get_month_to_search() {
  // Searches all timestamps on the db to find all the years.
 function get_years_to_search() {
     global $DB;
-    $sql = "SELECT FROM_UNIXTIME(date) AS fecha FROM {report_user_statistics};";
+    $sql = "SELECT date AS fecha FROM {report_user_statistics};";
     $dates = $DB->get_records_sql($sql);
     $result = array();
     foreach ($dates as $date) {
-        $fecha = new DateTime($date->fecha);
+        $fecha = new DateTime("@$date->fecha");
         $result[$fecha->format('Y')] = $fecha->format('Y');
     }
     return $result;
